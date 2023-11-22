@@ -1,0 +1,20 @@
+// swift-tools-version:5.3
+import PackageDescription
+
+let package = Package(
+    name: "TWSearch",
+    products: [
+        .library(name: "TWSearch", targets: ["TWSearchLib", "TWSearchLibSwift"]),
+    ],
+    targets: [
+        .target(
+            name: "TWSearchLibSwift",
+            sources: ["./src/rs-swift/Swift"]
+	),
+        .binaryTarget(
+            name: "TWSearchLib",
+            url: "https://github.com/xbjfk/twsearch/releases/download/@@VERSION@@/TWSearch.xcframework.tar.gz",
+            checksum: "@@CHECKSUM@@"
+        )
+    ]
+)
